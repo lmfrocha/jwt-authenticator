@@ -15,9 +15,11 @@ public class SecurityController {
 	@ResponseBody
 	@Secured({"ROLE_CLIENT", "ROLE_ADMIN"})
 	public User user() {
-		return (User) SecurityContextHolder.getContext()
+		User usr = new User();
+		usr = (User) SecurityContextHolder.getContext()
 				.getAuthentication()
 				.getPrincipal();
+	return usr;
 	}
 	
 }

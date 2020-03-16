@@ -31,8 +31,8 @@ public class DataInitializer implements ApplicationListener<ContextRefreshedEven
 	public void onApplicationEvent(ContextRefreshedEvent event) {
 		List<User> users = user.findAll();
 		if (users.isEmpty()) {
-			createUser("admin", "lucas@lucas.com", passCode.encode("123"), Const.getRoleAdmin());
-			createUser("cliente", "cliente@lucas.com", passCode.encode("123"), Const.getRoleClient());
+			createUser("Admin", "admin", passCode.encode("123456"), Const.ROLE_ADMIN);
+			createUser("Cliente", "cliente", passCode.encode("123456"), Const.ROLE_CLIENT);
 		}
 	}
 
